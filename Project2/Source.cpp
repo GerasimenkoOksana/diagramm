@@ -27,7 +27,8 @@ public:
 	{
 		ifstream in(file);
 		string data;
-		in >> data;
+		//in >> data;
+		getline(in, data);
 		hash<string>_hash;
 		in.close();
 		return _hash(data);
@@ -39,14 +40,14 @@ class DVD
 {
 	string file;
 
-	void check_disk()
+	void check_disk() //проверка читается ли диск
 	{
 		if (false)
 		{
 			throw "disk_corrupted";
         }
 	}
-	bool check_space()
+	bool check_space() //проверка своб места
 	{
 		return true;
 	}
@@ -81,7 +82,7 @@ int main()
 	try 
 	{
 		DVD dvd("file.txt");
-		dvd.write("12345");
+		dvd.write("1 2 345");
 	}
 	catch (const char* error)
 	{
